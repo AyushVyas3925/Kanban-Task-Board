@@ -49,16 +49,16 @@ export default function App() {
         Kanban Board
       </h1>
 
-      <div className="mb-10 flex gap-4 bg-gray-800/40 backdrop-blur-xl p-6 rounded-2xl border border-white/10 shadow-2xl z-10">
+      <div className="mb-10 flex flex-col md:flex-row gap-4 bg-gray-800/40 backdrop-blur-xl p-6 rounded-2xl border border-white/10 shadow-2xl z-10 w-full max-w-3xl mx-4">
         <input
           type="text"
           placeholder="What needs to be done?"
-          className="p-3 w-64 rounded-xl bg-gray-900/50 border border-gray-700/50 text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all font-medium"
+          className="p-3 w-full md:w-64 rounded-xl bg-gray-900/50 border border-gray-700/50 text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all font-medium"
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
         />
         <select
-          className="p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all font-medium cursor-pointer"
+          className="p-3 w-full md:w-auto rounded-xl bg-gray-900/50 border border-gray-700/50 text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all font-medium cursor-pointer"
           value={newPriority}
           onChange={(e) => setNewPriority(e.target.value)}
         >
@@ -68,7 +68,7 @@ export default function App() {
         </select>
         <button
           onClick={addTask}
-          className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-blue-900/20 transform hover:-translate-y-0.5 transition-all active:scale-95"
+          className="w-full md:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-blue-900/20 transform hover:-translate-y-0.5 transition-all active:scale-95 whitespace-nowrap"
         >
           Add Task
         </button>

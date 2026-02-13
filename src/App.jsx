@@ -42,51 +42,63 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-10 flex flex-col items-center">
-      <h1 className="text-4xl font-bold text-center mb-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-[#1a1c2e] to-gray-900 text-white p-10 flex flex-col items-center selection:bg-blue-500 selection:text-white font-sans">
+      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
+
+      <h1 className="text-5xl font-extrabold text-center mb-10 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 drop-shadow-lg z-10">
         Kanban Board
       </h1>
-      <div className="mb-8 flex gap-2">
+
+      <div className="mb-10 flex gap-4 bg-gray-800/40 backdrop-blur-xl p-6 rounded-2xl border border-white/10 shadow-2xl z-10">
         <input
           type="text"
-          placeholder="Type a task..."
-          className="p-2 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:border-blue-500"
+          placeholder="What needs to be done?"
+          className="p-3 w-64 rounded-xl bg-gray-900/50 border border-gray-700/50 text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all font-medium"
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
-
         />
         <select
-          className="p-2 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:border-blue-500"
+          className="p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all font-medium cursor-pointer"
           value={newPriority}
           onChange={(e) => setNewPriority(e.target.value)}
         >
-          <option value="High">High</option>
-          <option value="Medium">Medium</option>
-          <option value="Low">Low</option>
+          <option value="High"> High Priority</option>
+          <option value="Medium">Medium Priority</option>
+          <option value="Low">Low Priority</option>
         </select>
         <button
           onClick={addTask}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-medium"
+          className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-blue-900/20 transform hover:-translate-y-0.5 transition-all active:scale-95"
         >
           Add Task
         </button>
       </div>
-      <div className="flex gap-6 flex-wrap justify-center">
-        <Column title="To Do"
+
+      <div className="flex gap-8 flex-wrap justify-center w-full max-w-7xl z-10">
+        <Column
+          title="To Do"
           tasks={tasks.filter((t) => t.column === "To Do")}
           deleteTask={deleteTask}
           moveTask={moveTask}
-          updateTask={updateTask} />
-        <Column title="In Progress"
+          updateTask={updateTask}
+          color="blue"
+        />
+        <Column
+          title="In Progress"
           tasks={tasks.filter((t) => t.column === "In Progress")}
           deleteTask={deleteTask}
           moveTask={moveTask}
-          updateTask={updateTask} />
-        <Column title="Done"
+          updateTask={updateTask}
+          color="purple"
+        />
+        <Column
+          title="Done"
           tasks={tasks.filter((t) => t.column === "Done")}
           deleteTask={deleteTask}
           moveTask={moveTask}
-          updateTask={updateTask} />
+          updateTask={updateTask}
+          color="green"
+        />
       </div>
     </div>
   );

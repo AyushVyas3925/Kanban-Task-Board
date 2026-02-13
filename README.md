@@ -20,11 +20,10 @@ A stylish, responsive, and intuitive Kanban board application built with React a
 
 ## 📸 Preview
 
-| Desktop View | Mobile View |
-|:---:|:---:|
-| ![Desktop View](Screenshots/desktop-preview.png) | ![Mobile View](Screenshots/mobile-preview.png) |
+| Desktop View |
+|:---:|
+| ![Desktop View](Screenshots/desktop-preview.png) |
 
-> *Note: Please add `desktop-preview.png` and `mobile-preview.png` to the `Screenshots/` directory.*
 
 ---
 
